@@ -25,6 +25,12 @@ app.engine('hbs', exphbs({extname: '.hbs'}))
 // Step 5-B
 app.set('view engine', 'hbs');
 
+// Step 6
+// Router
+app.get('', (req, res) => {
+    res.render('home')
+});
+
 
 
 // Step 1-D
@@ -57,3 +63,5 @@ app.listen(port, () => {
 // STEP 5 - Setup templating engine / HANDLEBARS
 // A - change default file extension from .handlebars to .hbs
 // B - setup our view engine, handlebars
+//
+// STEP 6 - Render home page / home.hbs
