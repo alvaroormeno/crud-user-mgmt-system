@@ -21,7 +21,7 @@ app.use(express.static('public'));
 
 // Step 5 - Setup templating engine (HANDLEBARS)
 // Step 5-A
-app.engine('hbs', exphbs({extname: '.hbs'}))
+app.engine('hbs', exphbs.engine({extname: '.hbs'}))
 // Step 5-B
 app.set('view engine', 'hbs');
 
