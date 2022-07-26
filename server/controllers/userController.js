@@ -19,8 +19,8 @@ exports.view = (req, res) => {
         if(err) throw err; //not connected!
         console.log('Connected as ID' + connection.threadId);
 
-        // Use the connection
-        connection.query('SELECT * FROM user', (err, rows) => {
+        // Use the connection - query to view all users that only have active status in database user table
+        connection.query('SELECT * FROM user WHERE status = "active"', (err, rows) => {
             // When done with the connection, release it
             connection.release()
 

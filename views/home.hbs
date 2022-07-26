@@ -10,17 +10,20 @@
     </tr>
   </thead>
   <tbody>
+    {{!-- for each or just like mapping in react to pass all the info to component, here we are passing rows data into the html table --}}
+    {{#each rows}}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>email@mdo.com</td>
-      <td>30571002358</td>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.first_name}}</td>
+      <td>{{this.last_name}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.phone}}</td>
       <td class="text-end">
         <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>View</a>
         <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>Edit</a>
         <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i>Delete</a>
       </td>
     </tr>
+    {{/each}}
   </tbody>
 </table>
