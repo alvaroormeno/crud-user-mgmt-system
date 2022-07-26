@@ -25,6 +25,24 @@ app.engine('hbs', exphbs.engine({extname: '.hbs'}))
 // Step 5-B
 app.set('view engine', 'hbs');
 
+
+
+// Step 7 - Connect to MYSQL database
+// Step 7-A create connection pool
+const pool = mysql.createPool({
+    connectionLimit : 100,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
+});
+// Step 7-B connect to db
+pool.getConnection((err, connection) => {
+    if(err) throw err; //not connected!
+    console.log('Connected as ID' + connection.threadId);
+})
+
+
 // Step 6
 // Router
 app.get('', (req, res) => {
@@ -65,3 +83,7 @@ app.listen(port, () => {
 // B - setup our view engine, handlebars
 //
 // STEP 6 - Render home page / home.hbs
+//
+// STEP 7 - Connect to MYSQL database
+// A - create connection pool
+// B - connect to db
