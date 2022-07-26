@@ -42,7 +42,7 @@ exports.find = (req, res) => {
 
 
         // Use the connection - query to view all users that only have active status in database user table
-        connection.query('SELECT * FROM user WHERE first_name LIKE ? OR last_name LIKE?', ['%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
+        connection.query('SELECT * FROM user WHERE status = "active" AND first_name LIKE ? OR last_name LIKE ? ', ['%' + searchTerm + '%', '%' + searchTerm + '%'], (err, rows) => {
             // When done with the connection, release it
             connection.release()
 
