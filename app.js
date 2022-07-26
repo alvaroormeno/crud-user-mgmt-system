@@ -19,6 +19,11 @@ app.use(bodyParser.json());
 // Step 4 - Setup Static Files
 app.use(express.static('public'));
 
+// Step 5 - Setup templating engine (HANDLEBARS)
+// Step 5-A
+app.engine('hbs', exphbs({extname: '.hbs'}))
+// Step 5-B
+app.set('view engine', 'hbs');
 
 
 
@@ -48,3 +53,7 @@ app.listen(port, () => {
 //
 // STEP 4 - Setup static files
 // the files we want to add in our front end, like a custom css file or js file or an easy acess to images
+//
+// STEP 5 - Setup templating engine / HANDLEBARS
+// A - change default file extension from .handlebars to .hbs
+// B - setup our view engine, handlebars
