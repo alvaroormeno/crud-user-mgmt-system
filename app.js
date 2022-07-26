@@ -42,7 +42,7 @@ pool.getConnection((err, connection) => {
     console.log('Connected as ID' + connection.threadId);
 })
 
-
+ 
 // Step 6
 // Router
 // app.get('', (req, res) => {
@@ -101,4 +101,4 @@ app.listen(port, () => {
 //     res.render('home')
 // });
 //
-// move it to the new user.js file inside routes folder where we will have all our routes organized
+// move it to the new user.js file inside routes folder where we will have all our routes organized... but then we will move it to userController.js as our onlu controller
