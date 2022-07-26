@@ -45,10 +45,13 @@ pool.getConnection((err, connection) => {
 
 // Step 6
 // Router
-app.get('', (req, res) => {
-    res.render('home')
-});
-
+// app.get('', (req, res) => {
+//     res.render('home')
+// });
+// Step 6 (AFTER)
+// tell our app where our router is...
+const routes = require('./server/routes/user');
+app.use('/', routes)
 
 
 // Step 1-D
@@ -87,3 +90,15 @@ app.listen(port, () => {
 // STEP 7 - Connect to MYSQL database
 // A - create connection pool
 // B - connect to db
+
+
+//
+// AFTER - create a new folder called server and inside separate routes from logic, so we will have routes and controllers
+//
+// STEP 6 (AFTER) since we created new servr folder we need to move:
+//
+// app.get('', (req, res) => {
+//     res.render('home')
+// });
+//
+// move it to the new user.js file inside routes folder where we will have all our routes organized
