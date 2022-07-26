@@ -5,7 +5,7 @@ const userController = require('../controllers/userController');
 // use user controller
 router.get('/', userController.view);
 router.post('/', userController.find);
-router.post('/adduser', userController.form);
+router.get('/adduser', userController.form);
 
 
 
