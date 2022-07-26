@@ -11,6 +11,10 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 // Step 3
+// parse application/x-www-form-urlecoded
+app.use(bodyParser.urlencoded({extended: false}));
+// parse application/json (make sure body parser is using json)
+app.use(bodyParser.json()); 
 
 
 
