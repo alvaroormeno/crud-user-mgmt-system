@@ -57,7 +57,40 @@ exports.find = (req, res) => {
     })
 };
 
-// Add new user
 exports.form = (req, res) => {
-    res.render('add-user')
+    res.render('add-user');
+}
+
+
+
+// Add new user
+exports.create = (req, res) => {
+
+    // destrcuture data from request body
+    const {first_name, last_name, email, phone, comments} = req.body;
+
+    // res.render('add-user')   
+        pool.getConnection((err, connection) => {
+            if(err) throw err; //not connected!
+            console.log('Connected as ID' + connection.threadId); 
+    
+            // grab value of search box
+            let searchTerm =  req.body.search;
+    
+    
+            // Use the connection - query to view all users that only have active status in database user table
+            connection.query('INSERT INTO user SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ?', [first_name, last_name, email, phone, comments], (err, rows) => {
+                // When done with the connection, release it
+                connection.release()
+    
+                if(!err) {
+                    res.render('add-user');
+                } else {
+                    console.log(err);
+                }
+    
+                console.log('The data from user table: \n', rows)
+            });
+        })
+    
 };
