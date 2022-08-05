@@ -7,6 +7,14 @@
   </ol>
 </nav>
 
+{{!-- DISMISABLE FORM --}}
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
 {{!-- FORM --}}
 <form class="row g-3 needs-validation" method="POST" action="/adduser" novalidate>
 

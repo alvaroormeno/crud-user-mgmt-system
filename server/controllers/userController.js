@@ -84,7 +84,7 @@ exports.create = (req, res) => {
                 connection.release()
     
                 if(!err) {
-                    res.render('add-user');
+                    res.render('add-user', {alert: 'user added successfuly!'});
                 } else {
                     console.log(err);
                 }
