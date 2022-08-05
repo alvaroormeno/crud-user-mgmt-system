@@ -165,6 +165,31 @@ exports.update = (req, res) => {
 }
 
 // Delete User
+// exports.delete = (req, res) => {
+
+//     pool.getConnection((err, connection) => {
+//         if(err) throw err; //not connected!
+//         console.log('Connected as ID' + connection.threadId); 
+
+//         // Use the connection - query to view all users that only have active status in database user table
+//         connection.query('DELETE FROM user WHERE id = ?', [req.params.id], (err, rows) => {
+//             // When done with the connection, release it
+//             connection.release()
+
+//             if(!err) {
+//                 res.redirect('/');
+//             } else {
+//                 console.log(err);
+//             }
+
+//             console.log('The data from user table: \n', rows)
+//         });
+//     })
+    
+
+// }
+
+// or update user status to removed so it doesnt show but the info is still saved in db
 exports.delete = (req, res) => {
 
     pool.getConnection((err, connection) => {
@@ -172,7 +197,7 @@ exports.delete = (req, res) => {
         console.log('Connected as ID' + connection.threadId); 
 
         // Use the connection - query to view all users that only have active status in database user table
-        connection.query('DELETE FROM user WHERE id = ?', [req.params.id], (err, rows) => {
+        connection.query('UPDATE user SET status = ? WHERE id = ?', ['removed', req.params.id], (err, rows) => {
             // When done with the connection, release it
             connection.release()
 
