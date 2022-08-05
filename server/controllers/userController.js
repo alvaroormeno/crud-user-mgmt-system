@@ -94,3 +94,10 @@ exports.create = (req, res) => {
         })
     
 };
+
+// Edit User
+exports.edit = (req, res) => {
+
+    res.render('edit-user');
+
+}
