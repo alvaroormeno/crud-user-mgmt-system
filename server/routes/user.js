@@ -13,6 +13,6 @@ router.post('/edituser/:id', userController.update);
 
 router.get('/:id', userController.delete)
 
-
+router.get('/viewuser/:id', userController.viewall)
 
 module.exports = router
