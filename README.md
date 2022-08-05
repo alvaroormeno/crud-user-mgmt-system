@@ -28,6 +28,7 @@ A basic CRUD app to manage employees data.
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Bootstrap](https://getbootstrap.com/)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/about/)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
