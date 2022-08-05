@@ -145,7 +145,7 @@ exports.update = (req, res) => {
                         connection.release()
             
                         if(!err) {
-                            res.render('edit-user', {rows});
+                            res.render('edit-user', {rows, alert: `${first_name} has been updated!`});
                         } else {
                             console.log(err);
                         }
