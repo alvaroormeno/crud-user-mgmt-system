@@ -10,5 +10,7 @@
 
 {{!-- FORM --}}
 <form class="row g-3 needs-validation" method="POST" action="/adduser" novalidate>
-    {{> user-form}}
-</form>
+    {{#each rows}}
+        {{> user-form}}
+    {{/each}}
+</form> 
