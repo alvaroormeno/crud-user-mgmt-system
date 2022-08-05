@@ -130,7 +130,7 @@ exports.update = (req, res) => {
         console.log('Connected as ID' + connection.threadId); 
 
         // Use the connection - query to view all users that only have active status in database user table
-        connection.query('UPDATE user SET first_name = ?, last_name = ? WHERE id = ? ', [first_name, last_name, req.params.id], (err, rows) => {
+        connection.query('UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ?, comments = ? WHERE id = ? ', [first_name, last_name, email, phone, comments, req.params.id], (err, rows) => {
             // When done with the connection, release it
             connection.release()
 
