@@ -11,6 +11,8 @@ router.post('/adduser', userController.create);
 router.get('/edituser/:id', userController.edit);
 router.post('/edituser/:id', userController.update);
 
+router.post('/id', userController.delete)
+
 
 
 module.exports = router
