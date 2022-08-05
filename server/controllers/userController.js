@@ -21,7 +21,8 @@ exports.view = (req, res) => {
             connection.release()
 
             if(!err) {
-                res.render('home', {rows});
+                let removedUser = req.query.removed;
+                res.render('home', {rows, removedUser});
             } else {
                 console.log(err);
             }
@@ -202,7 +203,8 @@ exports.delete = (req, res) => {
             connection.release()
 
             if(!err) {
-                res.redirect('/');
+                let removedUser = encodeURIComponent('user successfuly removed!')
+                res.redirect('/?removed=' + removedUser);
             } else {
                 console.log(err);
             }
